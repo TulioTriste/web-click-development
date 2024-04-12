@@ -4,10 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+      .colorized-img {
+        filter: hue-rotate(360deg); /* Cambia el ángulo para cambiar el color (0deg a 360deg) */
+      }
+    </style>
+  </head>
 <body>
     <main>
-        <h1>Hola Mundo</h1>
+        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+            <div class="container-fluid">
+              <img src="img/cog-icon-96x96-ueso6skq.png" width="24px" type="buttom" class="img-fluid colorized-img" href="#"></img>
+              <a class="navbar-brand">Web Click Development</a>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+
+              <a class="nav-link inicio font-monospace " href="#"><u>Inicio</u></a>
+              <a class="nav-link inicio font-monospace"" href="#">Templates</a>
+              <a class="nav-link inicio font-monospace" aria-current="page" href="#">Custom Web</a>
+              <a class="nav-link inicio font-monospace" aria-current="page" href="#">Sobre Nosotros</a>
+              <a class="nav-link inicio font-monospace" aria-current="page" href="#">Perfil</a>
+            </div>
+          </nav>
     </main>
 </body>
 </html>
