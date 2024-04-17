@@ -17,14 +17,18 @@ body {
     font-weight: bold;
 }
 
-#navbar-settings {
+#navbar-settings-carrito {
     margin: 2%;
-    color: rgb(78, 78, 78);
 }
 
 #navbar-navegador {
-    display: inline;
-    font-size: 3em;
+    display: flex;
+}
+
+#busqueda-producto {
+    background-color: rgb(36, 33, 33);
+    border-color: gray;
+    font-size: 13px;
 }
 
 .navbar-brand, .nav-link {
@@ -32,3 +36,5 @@ body {
     font-size: 16px;
     color: white;
 }
+
+
