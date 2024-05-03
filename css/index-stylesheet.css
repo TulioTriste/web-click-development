@@ -5,6 +5,7 @@ body {
 #navbar-full {
     background-color: rgb(36, 33, 33);
     height: min-content;
+    color: white;
 }
 
 #navbar-icon {
@@ -37,4 +38,10 @@ body {
     color: white;
 }
 
-
+#search-input {
+    border: 0.1rem solid;
+    border-radius: 8px;
+    border-color: gray;
+    background-color: rgb(36, 33, 33);
+    font-size: 14px;
+}

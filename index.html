@@ -9,7 +9,6 @@
     <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
   </head>
 <body>
-  <header>
     <!--
     <nav class="navbar border-bottom border-body" id="navbar-full">
       <div class="row">
@@ -68,18 +67,20 @@
           </div>
         </div>
     </nav>-->
-    <body class="bg-zinc-800 text-white">
-      <nav class="flex items-center justify-between p-4">
-          <div class="flex items-center space-x-4">
+  <body>
+    <header class="bg-zinc-800">
+      <nav class="navbar navbar-expand flex items-center justify-between p-4" id="navbar-full">
+        <div class="navbar-brand container-fluid">
+          <div class="nav-item">
+              <img src="img/cart.1024x777.png" alt="Cart Icon" width="30px" class="h-4 w-4">
+                <span class="text-sm">Ver Carrito</span>
               <img src="img/Icon-White.png" alt="Logo" width="30px" class="h-6 w-6">
-              <span class="text-sm">Ver Carrito</span>
-              <img src="https://placehold.co/20x20" alt="Cart Icon" class="h-4 w-4">
-              <span class="font-bold text-lg">Web Click Development</span>
+                <span class="font-bold text-lg">Web Click Development</span>
           </div>
-          <div class="flex items-center space-x-4">
-              <input type="text" placeholder="Busca un Producto" class="bg-zinc-700 p-2 rounded-md text-sm placeholder-zinc-300">
+          <div class="nav-item">
+              <input type="text" placeholder="Busca un Producto" class="p-2" id="search-input">
               <button class="bg-zinc-700 p-2 rounded-md text-sm">
-                  <img src="" alt="Search Icon" class="h-4 w-4">
+                  <img src="img/magnifying-glass-6x.png" alt="Search Icon" class="h-4 w-4">
               </button>
               <a href="#" class="text-sm">Inicio</a>
               <a href="#" class="text-sm">Templates</a>
@@ -87,9 +88,10 @@
               <a href="#" class="text-sm">Sobre Nosotros</a>
               <a href="#" class="text-sm">Perfil</a>
           </div>
+        </div>
       </nav>
+    </header>
   </body>
-  </header>
   <main>
     
   </main>
