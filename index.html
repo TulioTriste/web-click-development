@@ -69,24 +69,37 @@
     </nav>-->
   <body>
     <header class="bg-zinc-800">
-      <nav class="navbar navbar-expand flex items-center justify-between p-4" id="navbar-full">
+      <nav class="navbar navbar-expand p-4" id="navbar-full">
         <div class="navbar-brand container-fluid">
+
+          <!-- Ver Carrito Div -->
           <div class="nav-item">
-              <img src="img/cart.1024x777.png" alt="Cart Icon" width="30px" class="h-4 w-4">
-                <span class="text-sm">Ver Carrito</span>
-              <img src="img/Icon-White.png" alt="Logo" width="30px" class="h-6 w-6">
-                <span class="font-bold text-lg">Web Click Development</span>
+            <img src="img/cart.1024x777.png" alt="Cart Icon" width="30px" class="h-4 w-4">
+              <span class="text-sm">Ver Carrito</span>
           </div>
+
+          <!-- Logo Div -->
+          <div>
+            <img src="img/Icon-White.png" alt="Logo" width="30px" class="h-6 w-6">
+            <span class="font-bold text-lg">Web Click Development</span>
+          </div>
+
+          <!-- Search Product Div -->
           <div class="nav-item">
+            <form>
               <input type="text" placeholder="Busca un Producto" class="p-2" id="search-input">
-              <button class="bg-zinc-700 p-2 rounded-md text-sm">
-                  <img src="img/magnifying-glass-6x.png" alt="Search Icon" class="h-4 w-4">
+              <button id="search-button">
+                  <img src="img/magnifying-glass-6x.png" alt="Search Icon" width="20px">
               </button>
-              <a href="#" class="text-sm">Inicio</a>
-              <a href="#" class="text-sm">Templates</a>
-              <a href="#" class="text-sm">Custom Web</a>
-              <a href="#" class="text-sm">Sobre Nosotros</a>
-              <a href="#" class="text-sm">Perfil</a>
+            </form>
+          </div>
+
+          <div>
+            <a href="#" class="text-sm">Inicio</a>
+            <a href="#" class="text-sm">Templates</a>
+            <a href="#" class="text-sm">Custom Web</a>
+            <a href="#" class="text-sm">Sobre Nosotros</a>
+            <a href="#" class="text-sm">Perfil</a>
           </div>
         </div>
       </nav>

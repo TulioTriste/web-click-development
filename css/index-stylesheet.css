@@ -38,10 +38,39 @@ body {
     color: white;
 }
 
-#search-input {
+form {
+    display: flex;
+    flex-direction: row;
+  
     border: 0.1rem solid;
     border-radius: 8px;
     border-color: gray;
+
+    padding: 1px;
+}
+input {
+    flex-grow: 2;
+    border: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    /* Just a little styling to make it pretty */
+    border:1px solid black;
+    background:rgb(36, 33, 33);
+    color:gray;
+}
+
+#search-input {
     background-color: rgb(36, 33, 33);
     font-size: 14px;
+}
+
+#search-button {
+    background-color: rgb(36, 33, 33);
+    border: 0;
+    padding: 1px;
 }
