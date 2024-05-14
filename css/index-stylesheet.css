@@ -32,7 +32,7 @@ body {
     font-size: 13px;
 }
 
-.navbar-brand, .nav-link {
+.navbar-brand, .nav-link, #cart-button, #logo-button {
     font-family: 'JetBrains Mono';
     font-size: 16px;
     color: white;
@@ -51,16 +51,16 @@ form {
 input {
     flex-grow: 2;
     border: none;
+    color: white;
 }
 
 input:focus {
     outline: none;
 }
 
-button {
+#search-button {
     /* Just a little styling to make it pretty */
     border:1px solid black;
-    background:rgb(36, 33, 33);
     color:gray;
 }
 
@@ -69,8 +69,17 @@ button {
     font-size: 14px;
 }
 
-#search-button {
+#search-button, #cart-button, #logo-button {
     background-color: rgb(36, 33, 33);
     border: 0;
     padding: 1px;
+}
+
+#logo-div {
+    padding-right: 100px;
+}
+
+#search-div {
+    display: block;
+    padding-right: 100px;
 }
