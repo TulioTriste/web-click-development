@@ -1,5 +1,5 @@
 body {
-    background-color: gray;
+    background-color: #242121CC;
 }
 
 #navbar-full {
@@ -72,14 +72,11 @@ input:focus {
 #search-button, #cart-button, #logo-button {
     background-color: rgb(36, 33, 33);
     border: 0;
-    padding: 1px;
-}
-
-#logo-div {
-    padding-right: 100px;
 }
 
 #search-div {
     display: block;
-    padding-right: 100px;
+}
+
+#carouselExampleCaptions {
 }
