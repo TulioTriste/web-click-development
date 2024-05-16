@@ -74,8 +74,10 @@ input:focus {
     border: 0;
 }
 
-#search-div {
+#carousel-div {
+    color: black;
 }
 
-#carouselExampleCaptions {
+.footer {
+    background-color: #353535;
 }
