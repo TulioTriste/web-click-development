@@ -2,6 +2,8 @@ body {
     background-color: #242121CC;
 }
 
+/* Navbar section */
+
 #navbar-full {
     background-color: rgb(36, 33, 33);
     height: min-content;
@@ -38,16 +40,6 @@ body {
     color: white;
 }
 
-.footer {
-    font-family: 'JetBrains Mono';
-    font-size: 14px;
-    color: white;
-}
-
-footer {
-    background-color: #353535;
-}
-
 form {
     display: flex;
     flex-direction: row;
@@ -58,6 +50,7 @@ form {
 
     padding: 1px;
 }
+
 input {
     flex-grow: 2;
     border: none;
@@ -69,7 +62,6 @@ input:focus {
 }
 
 #search-button {
-    /* Just a little styling to make it pretty */
     border:1px solid black;
     color:gray;
 }
@@ -84,10 +76,123 @@ input:focus {
     border: 0;
 }
 
+/* Carousel Section */
+
 #carousel-div {
     color: black;
 }
 
+/* Footer Section */
+
 .footer {
+    font-family: 'JetBrains Mono';
     background-color: #353535;
+    font-size: 14px;
+    color: white;
+}
+
+#footer-icon {
+    padding-right: 10%;
+    padding-top: 4%;
+}
+
+footer {
+    background-color: #353535;
+    display: grid;
+    align-items: center;
+    height: 280px;
+}
+
+#footer-item-1, #footer-item-2, #footer-item-3 {
+    padding-top: 4%;
+}
+
+ul#ul-footer a {
+    color: #bbbbbb !important;
+    text-decoration: underline !important;
+    font-size: 13px;
+    padding-left: 2%;
+}
+
+/* Card Section */
+
+#card-section {
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
+
+.card {
+    width: 190px;
+    height: 360px;
+    padding: .8em;
+    background: #339eb9;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+#card-container div {
+    padding-top: 15%;
+}
+   
+.card-img {
+    height: 100%;
+    width: 40%;
+    border-radius: .5rem;
+    transition: .3s ease;
+
+    width: 50%;
+    margin: 0 auto;
+}
+   
+.card-info {
+    padding-top: 10%;
+}
+   
+svg {
+    width: 20px;
+    height: 20px;
+}
+   
+.card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid #505050;
+}
+   
+.text-title {
+    font-weight: 900;
+    font-size: 1.2em;
+    line-height: 1.5;
+
+    color: black;
+}
+   
+.text-body {
+    font-size: .9em;
+    padding-bottom: 10px;
+
+    color: black;
+}
+   
+.card-button {
+    border: 1px solid #252525;
+    display: flex;
+    padding: .3em;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: .3s ease-in-out;
+}
+
+.card-img:hover {
+    transform: translateY(-25%);
+    box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px;
+}
+
+.card-button:hover {
+    border: 1px solid #4fce9d;
+    background-color: #4fce9d;
 }
