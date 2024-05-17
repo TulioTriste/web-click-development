@@ -38,6 +38,16 @@ body {
     color: white;
 }
 
+.footer {
+    font-family: 'JetBrains Mono';
+    font-size: 14px;
+    color: white;
+}
+
+footer {
+    background-color: #353535;
+}
+
 form {
     display: flex;
     flex-direction: row;
