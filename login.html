@@ -9,6 +9,35 @@
     <link href="css/index-stylesheet.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
     <link rel="stylesheet" href="css/bootstrap/loginStyle.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('form').submit(function(event) {
+        event.preventDefault();
+    
+        var email = $('#email').val();
+        var password = $('#password').val();
+    
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Al menos una letra, un número y un mínimo de 8 caracteres
+    
+        if (!emailRegex.test(email)) {
+            alert('Por favor, introduce un correo electrónico válido.');
+            return false;
+        }
+    
+        if (!passwordRegex.test(password)) {
+            alert('La contraseña debe tener al menos una letra, un número y un mínimo de 8 caracteres.');
+            return false;
+        }
+    
+        alert('Inicio de sesión exitoso!');
+        return true;
+        });
+    });
+    </script>
+    </body>
+    </html>
 </head>
 <body>
     <header class="bg-zinc-800">
