@@ -107,9 +107,13 @@ footer {
     padding-top: 4%;
 }
 
+#footer-item-3 a {
+    text-decoration: none !important;
+}
+
 ul#ul-footer a {
     color: #bbbbbb !important;
-    text-decoration: underline !important;
+    text-decoration: underline;
     font-size: 13px;
     padding-left: 2%;
 }
@@ -124,8 +128,8 @@ ul#ul-footer a {
 .card {
     margin: 0 auto;
 
-    width: 190px;
-    height: 360px;
+    width: 275px;
+    height: 370px;
     padding: .8em;
     background: #339eb9;
     position: relative;
@@ -150,7 +154,7 @@ ul#ul-footer a {
     border-radius: .5rem;
     transition: .3s ease;
 
-    width: 50%;
+    width: 30%;
     margin: 0 auto;
 }
 
@@ -162,10 +166,11 @@ ul#ul-footer a {
 .card-info {
     padding-top: 10%;
 }
-   
-svg {
-    width: 20px;
-    height: 20px;
+
+
+.card-button svg {
+    width: 35px;
+    height: 25px;
 }
    
 .card-footer {
@@ -195,7 +200,7 @@ svg {
 .card-button {
     border: 1px solid #252525;
     display: flex;
-    padding: .3em;
+    padding: .2em;
     cursor: pointer;
     border-radius: 50px;
     transition: .3s ease-in-out;
