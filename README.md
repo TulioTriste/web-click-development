@@ -7,3 +7,4 @@
 * Auto Close Tag
 * Bracket Pair Color
 * Live Preview
+* Indent Rainbow
