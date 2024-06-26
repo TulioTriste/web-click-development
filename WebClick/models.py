@@ -8,9 +8,8 @@ class Usuario(models.Model):
     apellido_materno = models.CharField(max_length=20)
     fecha_nacimiento = models.DateField()
     telefono = models.CharField(max_length=12)
-    email = models.EmailField(max_length=100, unique=True, blank=True, null=True)
+    correo = models.EmailField(max_length=100, unique=True, blank=True, null=True)
     password = models.CharField(max_length=30)
-    direccion = models.CharField(max_length=50, blank=True, null=True)
     activo = models.BooleanField()
 
     def __str__(self):
