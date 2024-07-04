@@ -51,7 +51,11 @@
 
         <div class="col-md-1">
           <!-- Send to login.html -->
-          <button class="btn btn-outline-light" id="login-button"><a href="{% url 'login' %}">Login</a></button>
+          {% if usuario != None %}
+            <button class="btn btn-outline-light" id="login-button"><a href="{% url 'index' %}">{{usuario}}</a></button>
+          {% else %}
+            <button class="btn btn-outline-light" id="login-button"><a href="{% url 'login' %}">Login</a></button>
+          {% endif %}
           <!-- <script>
             function goToLogin() {
               window.location.href = "login.html";
