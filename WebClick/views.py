@@ -1,18 +1,14 @@
 from django.shortcuts import render
 from .models import Usuario
 from .forms import UsuarioForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def index(request):
-    usuarios= Usuario.objects.all()
-    context={
-        "usuarios": usuarios
-        }
-    return render(request, 'pages/index.html')
-
-def login(request):
-    return render(request, 'pages/login.html')
+    usuario=request.session["username"]
+    context = {'usuario', usuario}
+    return render(request, 'pages/index.html', context)
 
 def register(request):
     return render(request, 'pages/register.html')

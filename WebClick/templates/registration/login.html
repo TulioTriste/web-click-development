@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Click Development</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'img/Icon-Black.png' %}" type="image/x-icon"/>
+    <link href="{% static 'css/login.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        
+    </script>
+</head>
+<body>
+    {% include 'base/header.html' %}
+    <!-- <section>
+        <form action="submit">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card text-dark" style="border-radius: 1rem; background-color: #737373;">
+                            <div class="card-body p-5 text-center">
+                                <div class="pb-2">
+                                    <h2 class="fw-bold mb-2 text-uppercase">Inicio de Sesion</h2>
+
+                                    <div>
+                                        <p class="mb-0"><br>¿No tienes Cuenta? <a href="{% url 'register' %}" class="text-white-50 fw-bold">Registrate</a>
+                                        </p>
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-4">
+                                        <label class="form-label" for="typeEmailX"><br>Nombre de Usuario o Email</label>
+                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                    </div>
+
+                                    <div data-mdb-input-init class="form-outline form-white mb-4">
+                                        <label class="form-label" for="typePasswordX">Contraseña</label>
+                                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                                    </div>
+
+                                    <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Olvidaste tu Contraseña?</a></p>
+
+                                    <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-light btn-lg px-5" type="submit">Entrar</button>
+
+                                    <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                                        <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                                        <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                                        <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section> -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    {% include 'base/footer.html' %}
+</body>
+</html>
