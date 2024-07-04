@@ -7,7 +7,9 @@
         <div class="nav-item col-md-2 p-2">
           <button id="cart-button">
             <img src="{% static 'img/cart.1024x777.png' %}" alt="Cart Icon" width="30px" class="h-4 w-4">
-              <span class="text-sm">Ver Carrito</span>
+              <span class="text-sm">
+                <a>Ver Carrito</a>
+              </span>
           </button>
         </div>
 
@@ -15,7 +17,9 @@
         <div class="nav-item col-md-2 ms-3" id="logo-div">
           <button id="logo-button">
             <img src="{% static 'img/Icon-White.png' %}" alt="Logo" width="30px">
-              <span class="font-bold text-lg">Web Click Development</span>
+              <span class="font-bold text-lg">
+                <a href="{% url 'index' %}">Web Click Development</a>
+              </span>
           </button>
         </div>
 
@@ -32,35 +36,30 @@
         <div class="justify-content-between navbar-collapse col-md-4">
           <ul class="navbar-nav mb-2 mb-lg-0 flex flex-wrap">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
+              <a class="nav-link" href="{% url 'index' %}">Inicio</a>
             </li>
             <li>
-              <a class="nav-link" href="index.html">Templates</a>
+              <a class="nav-link" href="{% url 'index' %}">Templates</a>
             </li>
             <li>
-              <a class="nav-link" href="index.html">Custom Web</a>
+              <a class="nav-link" href="{% url 'index' %}">Custom Web</a>
             </li>
             <li>
-              <a class="nav-link" href="index.html">Sobre Nosotros</a>
+              <a class="nav-link" href="{% url 'index' %}">Sobre Nosotros</a>
             </li>
             <li>
-              <a class="nav-link" href="index.html">Perfil</a>
+              <a class="nav-link" href="{% url 'index' %}">Perfil</a>
             </li>
           </ul>
         </div>
 
         <div class="col-md-1">
           <!-- Send to login.html -->
-          {% if usuario != None %}
-            <button class="btn btn-outline-light" id="login-button"><a href="{% url 'index' %}">{{usuario}}</a></button>
+          {% if request.user.is_authenticated %}
+            <button class="btn btn-outline-light" id="login-button"><a href="{% url 'logout' %}">Logout</a></button>
           {% else %}
             <button class="btn btn-outline-light" id="login-button"><a href="{% url 'login' %}">Login</a></button>
           {% endif %}
-          <!-- <script>
-            function goToLogin() {
-              window.location.href = "login.html";
-            }
-          </script> -->
         </div>
       </div>
     </nav>

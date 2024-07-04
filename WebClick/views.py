@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from .models import Usuario
 from .forms import UsuarioForm
+from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def index(request):
-    usuario=request.session["username"]
-    context = {'usuario', usuario}
+    context = {"user": ""}
     return render(request, 'pages/index.html', context)
 
 def register(request):
@@ -47,3 +47,60 @@ def user_add(request):
             "mensaje": "Registro Exitoso",
         }
         return render(request, "pages/register.html", context)
+
+def loginSession(request):
+    if request.method=="POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        if username=="seb.moralesf" and password=="pass1234":
+            request.session["user"] = username
+            usuarios = Usuario.objects.all()
+            context = {
+                "usuarios":usuarios,
+            }
+            return render(request,"pages/index.html",context)
+        else:
+            context = {
+                "mensaje":"Usuario o contraseña incorrecta",
+                "design":"alert alert-danger w-50 mx-auto text-center",
+            }
+            return render(request,"registration/login.html",context)
+    else:
+        context = {
+
+        }
+        return render(request,"registration/login.html",context)
+
+def conectar(request):
+    if request.method=="POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user)
+            usuarios = Usuario.objects.all()
+            context = {
+                "usuarios":usuarios,
+            }
+            return render(request,"pages/index.html",context)
+        else:
+            context = {
+                "mensaje":"Usuario o contraseña incorrecta",
+                "design":"alert alert-danger w-50 mx-auto text-center",
+            }
+            return render(request,"registration/login.html",context)
+    else:
+        context = {
+
+        }
+        return render(request,"registration/login.html",context)
+
+def desconectar(request):   
+    if request.user.is_authenticated:
+        logout(request)
+    
+    context = {
+        "mensaje":"Desconectado con exito",
+        "design":"alert alert-success w-50 mx-auto text-center",
+    }
+    return render(request,"registration/login.html",context)
