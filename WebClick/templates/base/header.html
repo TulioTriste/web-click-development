@@ -1,10 +1,10 @@
 {% load static %}
 <header class="bg-zinc-800">
     <nav class="navbar navbar-expand-lg p-4" id="navbar-full">
-      <div class="navbar-brand container-fluid row justify-content-start">
+      <div class="navbar-brand container-fluid row justify-content-start d-flex">
 
         <!-- Ver Carrito Div -->
-        <div class="nav-item col-md-2 p-2">
+        <div class="nav-item col-md-4 justify-content-center">
           <button id="cart-button">
             <img src="{% static 'img/cart.1024x777.png' %}" alt="Cart Icon" width="30px" class="h-4 w-4">
               <span class="text-sm">
@@ -14,7 +14,7 @@
         </div>
 
         <!-- Logo Div -->
-        <div class="nav-item col-md-2 ms-3" id="logo-div">
+        <div class="nav-item col-md-3 justify-content-center" id="logo-div">
           <button id="logo-button">
             <img src="{% static 'img/Icon-White.png' %}" alt="Logo" width="30px">
               <span class="font-bold text-lg">
@@ -24,39 +24,53 @@
         </div>
 
         <!-- Search Product Div -->
-        <div class="nav-item col-md-3" id="search-div">
+        <!-- <div class="nav-item col-md-3" id="search-div">
           <form>
             <input type="text" placeholder="Busca un Producto" class="p-1 h-4" id="search-input">
             <button id="search-button">
                 <img src="{% static 'img/magnifying-glass-6x.png' %}" alt="Search Icon" width="20px">
             </button>
           </form>
-        </div>
+        </div> -->
 
-        <div class="justify-content-between navbar-collapse col-md-4">
+        <div class="justify-content-between navbar-collapse col-md-5">
           <ul class="navbar-nav mb-2 mb-lg-0 flex flex-wrap">
             <li class="nav-item">
               <a class="nav-link" href="{% url 'index' %}">Inicio</a>
             </li>
-            <li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'templates' %}">Templates</a>
             </li>
-            <li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'index' %}">Custom Web</a>
             </li>
-            <li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">Sobre Nosotros</a>
             </li>
-          </ul>
-        </div>
 
-        <div class="col-md-1">
-          <!-- Send to login.html -->
-          {% if request.user.is_authenticated %}
-            <button class="btn btn-outline-light" id="login-button"><a href="{% url 'logout' %}">Logout</a></button>
+            {% if request.user.is_authenticated %}
+            {% if request.user.is_staff %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Dropdown link
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+              </div>
+              </li>
+            {% else %}
+            <li>
+              <button class="btn btn-outline-light" id="login-button"><a href="{% url 'logout' %}">Logout</a></button>
+            </li>
+            {% endif %}
           {% else %}
-            <button class="btn btn-outline-light" id="login-button"><a href="{% url 'login' %}">Login</a></button>
+            <li>
+              <button class="btn btn-outline-light" id="login-button"><a href="{% url 'login' %}">Login</a></button>
+            </li>
           {% endif %}
+          </ul>
         </div>
       </div>
     </nav>
