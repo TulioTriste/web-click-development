@@ -20,3 +20,14 @@ class Usuario(models.Model):
             + " "
             + str(self.apellido_materno)
         )
+
+class Templates_Product(models.Model):
+    id = models.AutoField(primary_key=True)
+    titulo = models.CharField(max_length=25)
+    precio = models.IntegerField()
+    imagen_url = models.CharField(max_length=300)
+    descripcion = models.CharField(max_length=150)
+    descuento = models.IntegerField()
+
+    def __str__(self):
+        return str(self.titulo) + " " + str(self.precio) + " " + str(self.descripcion)
