@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Click Development</title>
+    {% load static %}
+    <link rel="icon" href="img/Icon-Black.png" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/index-stylesheet.css' %}">
+    <link href="{% static 'css/head-foot.css' %}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+</head>
+<body>
+    {% include 'base/header.html'%}
+
+    {% include 'base/templates.html' %}
+
+    {% include 'base/footer.html'%}
+</body>
+</html>

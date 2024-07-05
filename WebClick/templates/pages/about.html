@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Click Development</title>
+    {% load static %}
+    <link rel="icon" href="img/Icon-Black.png" type="image/x-icon"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/index-stylesheet.css' %}">
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+</head>
+<body>
+    {% include 'base/header.html'%}
+    <section class="container">
+        <h2>Bienvenidos a WebClick</h2>
+        <p>Tu destino ideal para la venta de Templates de HTML y CSS diseñados para cualquier tipo de página web. En WebClick, nos especializamos en ofrecer soluciones rápidas, elegantes y funcionales para desarrolladores, diseñadores y emprendedores que buscan mejorar la apariencia y funcionalidad de sus proyectos en línea.</p>
+
+        <h2>Nuestra Misión</h2>
+        <p>En WebClick, creemos que una buena presencia en línea comienza con un diseño atractivo y eficiente. Nuestra misión es proporcionar templates de alta calidad que sean fáciles de usar y personalizar, permitiendo a nuestros clientes destacar en el mundo digital. Nos esforzamos por ser una fuente confiable y accesible de herramientas que faciliten la creación de páginas web profesionales.</p>
+
+        <h2>Nuestros Productos</h2>
+        <p>Ofrecemos una amplia gama de templates de HTML y CSS que cubren diversas necesidades, desde blogs personales y portafolios, hasta sitios web corporativos y tiendas en línea. Cada template está cuidadosamente diseñado y codificado para asegurar compatibilidad y rendimiento óptimo en todos los dispositivos y navegadores.</p>
+
+        <h2>Servicios Personalizados</h2>
+        <p>Además de nuestros templates pre-diseñados, en WebClick también ofrecemos servicios de creación de páginas web personalizadas. Entendemos que cada negocio es único y, por lo tanto, ofrecemos soluciones a medida que se alinean perfectamente con tus objetivos y necesidades específicas. Nuestro equipo de desarrolladores y diseñadores trabaja en estrecha colaboración contigo para crear una presencia web que realmente refleje tu marca.</p>
+
+        <h2>¿Por Qué Elegirnos?</h2>
+        <p>- <strong>Calidad y Profesionalismo:</strong> Todos nuestros templates y servicios están desarrollados con los más altos estándares de calidad.</p>
+        <p>- <strong>Fácil Personalización:</strong> Nuestras plantillas son fáciles de modificar, permitiéndote adaptarlas a tus preferencias y necesidades sin complicaciones.</p>
+        <p>- <strong>Soporte Dedicado:</strong> Ofrecemos un servicio de atención al cliente dedicado para asistirte en cualquier momento, asegurando que tu experiencia con nosotros sea fluida y satisfactoria.</p>
+        <p>- <strong>Innovación Continua:</strong> Nos mantenemos al día con las últimas tendencias y tecnologías para ofrecerte soluciones modernas y eficaces.</p>
+
+        <p>En <strong>WebClick</strong>, tu éxito es nuestro objetivo. Únete a nuestra comunidad de clientes satisfechos y lleva tu presencia en línea al siguiente nivel con nuestros excepcionales templates y servicios personalizados. ¡Descubre hoy mismo cómo podemos ayudarte a crear la página web de tus sueños!</p>
+    </section>
+    {% include 'base/footer.html'%}
+</body>
+</html>

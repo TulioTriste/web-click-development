@@ -1,17 +1,22 @@
 from django.shortcuts import render
-from .models import Usuario
+from .models import Usuario,Templates_Product
 from .forms import UsuarioForm
 from django.contrib.auth import authenticate,login,logout
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def index(request):
-    context = {"user": ""}
+    context = {
+        "user": "",
+        "templates": get_templates()
+    }
     return render(request, 'pages/index.html', context)
 
 def register(request):
     return render(request, 'pages/register.html')
+
+def about_page(request):
+    return render(request, 'pages/about.html')
 
 def user_add(request):
     if request.method != "POST":
@@ -104,3 +109,19 @@ def desconectar(request):
         "design":"alert alert-success w-50 mx-auto text-center",
     }
     return render(request,"registration/login.html",context)
+
+def templates(request):
+    context = {
+        "templates": get_templates()
+    }
+
+    return render(request,"pages/templates_page.html",context)
+
+def get_templates():
+    productos_templates = Templates_Product.objects.all()
+
+    for templ in productos_templates:
+        if templ.descuento != 0:
+            templ.precio = templ.precio - (templ.precio * templ.descuento)
+            
+    return productos_templates
