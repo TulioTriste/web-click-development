@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Usuario,Templates_Product
+from .models import Usuario,Templates_Product, Carrito, Compra
 from .forms import UsuarioForm
 from django.contrib.auth import authenticate,login,logout
 
@@ -125,3 +125,20 @@ def get_templates():
             templ.precio = templ.precio - (templ.precio * templ.descuento)
             
     return productos_templates
+
+def template(request, id):
+    template = Templates_Product.objects.get(id=id)
+    context = {
+        "template": template
+    }
+    return render(request, "pages/template.html", context)
+
+def carrito(request):
+    context = {
+        "carrito": get_carrito()
+    }
+    return render(request, "pages/carrito.html", context)
+
+def get_carrito():
+    carrito = Carrito.objects.all()
+    return carrito

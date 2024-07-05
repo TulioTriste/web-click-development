@@ -31,3 +31,40 @@ class Templates_Product(models.Model):
 
     def __str__(self):
         return str(self.titulo) + " " + str(self.precio) + " " + str(self.descripcion)
+
+class Carrito(models.Model):
+    id = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Templates_Product, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    total = models.IntegerField()
+
+    def __str__(self):
+        return (
+            str(self.usuario)
+            + " "
+            + str(self.producto)
+            + " "
+            + str(self.cantidad)
+            + " "
+            + str(self.total)
+        )
+
+class Compra(models.Model):
+    id = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Templates_Product, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    total = models.IntegerField()
+    fecha = models.DateField()
+
+    def __str__(self):
+        return (
+            str(self.usuario)
+            + " "
+            + str(self.producto)
+            + " "
+            + str(self.cantidad)
+            + " "
+            + str(self.total)
+        )
