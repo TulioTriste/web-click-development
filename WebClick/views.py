@@ -134,11 +134,6 @@ def template(request, id):
     return render(request, "pages/template.html", context)
 
 def carrito(request):
-    context = {
-        "carrito": get_carrito()
-    }
-    return render(request, "pages/carrito.html", context)
+    
+    return render(request, "pages/carrito.html")
 
-def get_carrito():
-    carrito = Carrito.objects.all()
-    return carrito
