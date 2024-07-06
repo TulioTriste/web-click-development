@@ -149,3 +149,33 @@ def panel(request):
 
 def template_add(request):
     return render(request, "pages/template_add.html")
+
+def add_template(request):
+    if request.method != "POST":
+        usuarios = Templates_Product.objects.all()
+        context = {
+            "templates": usuarios
+        }
+        return render(request, "pages/template_add.html", context)
+    else:
+        titulo = request.POST["titulo"]
+        precio = request.POST["precio"]
+        imagen_url = request.POST["imagen_url"]
+        descripcion = request.POST["descripcion"]
+        descuento = request.POST["descuento"]
+
+        if descuento == "":
+            descuento = 0
+
+        obj = Templates_Product.objects.create(
+            titulo=titulo,
+            precio=precio,
+            imagen_url=imagen_url,
+            descripcion=descripcion,
+            descuento=descuento,
+        )
+        obj.save()
+        context = {
+            "mensaje": "Registro Exitoso",
+        }
+        return render(request, "pages/template_add.html", context)

@@ -9,6 +9,7 @@ urlpatterns = [
     path("carrito", views.carrito, name="carrito"),
     path("panel", views.panel, name="panel"),
     path("template_add", views.template_add, name="template_add"),
+    path("add_template", views.add_template, name="add_template"),
 
     path('register', views.register, name='register'),
     
