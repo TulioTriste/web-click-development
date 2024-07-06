@@ -2,3 +2,9 @@
 .vscode/settings.json
 
 .vscode/launch.json
+
+Django/__pycache__/
+
+WebClick/__pycache__/
+
+WebClick/migrations/__pycache__/
