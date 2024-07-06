@@ -23,16 +23,7 @@
           </button>
         </div>
 
-        <!-- Search Product Div -->
-        <!-- <div class="nav-item col-md-3" id="search-div">
-          <form>
-            <input type="text" placeholder="Busca un Producto" class="p-1 h-4" id="search-input">
-            <button id="search-button">
-                <img src="{% static 'img/magnifying-glass-6x.png' %}" alt="Search Icon" width="20px">
-            </button>
-          </form>
-        </div> -->
-
+        <!-- Navbar -->
         <div class="justify-content-between navbar-collapse col-md-5">
           <ul class="navbar-nav mb-2 mb-lg-0 flex flex-wrap">
             <li class="nav-item">
@@ -48,6 +39,7 @@
               <a class="nav-link" href="{% url 'about' %}">Sobre Nosotros</a>
             </li>
 
+            <!-- Session Buttons -->
             {% if request.user.is_authenticated %}
               {% if request.user.is_staff %}
                 <li>

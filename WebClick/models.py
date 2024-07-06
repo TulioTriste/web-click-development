@@ -22,7 +22,7 @@ class Usuario(models.Model):
         )
 
 class Templates_Product(models.Model):
-    id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True, null=False, default=1)
     titulo = models.CharField(max_length=25)
     precio = models.IntegerField()
     imagen_url = models.CharField(max_length=300)
@@ -30,50 +30,4 @@ class Templates_Product(models.Model):
     descuento = models.IntegerField()
 
     def __str__(self):
-        return str(self.titulo) + " " + str(self.precio) + " " + str(self.descripcion)
-
-class Carrito(models.Model):
-    id = models.AutoField(primary_key=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    producto = models.ForeignKey(Templates_Product, on_delete=models.CASCADE)
-    cantidad = models.IntegerField()
-    total = models.IntegerField()
-
-    def __str__(self):
-        return (
-            str(self.usuario)
-            + " "
-            + str(self.producto)
-            + " "
-            + str(self.cantidad)
-            + " "
-            + str(self.total)
-        )
-
-class Compra(models.Model):
-    id = models.AutoField(primary_key=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    producto = models.ForeignKey(Templates_Product, on_delete=models.CASCADE)
-    cantidad = models.IntegerField()
-    total = models.IntegerField()
-    fecha = models.DateField()
-
-    def __str__(self):
-        return (
-            str(self.usuario)
-            + " "
-            + str(self.producto)
-            + " "
-            + str(self.cantidad)
-            + " "
-            + str(self.total)
-        )
-    
-class Producto(models.Model):
-    nombre = models.CharField(max_length=100)
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
-    descripcion = models.TextField()
-    # Añade más campos según sea necesario
-
-    def __str__(self):
-        return self.nombre
+        return "ID: '" + str(self.id) + "' - Titulo: '" + str(self.titulo) + "' - Precio: '" + str(self.precio) + "'"

@@ -35,6 +35,7 @@
                             <th>Imagen</th>
                             <th>Descripcion</th>
                             <th>Descuento</th>
+                            <th>Acciones</th>
                         </thead>
                         <tbody>
                             {% if templates %}
@@ -45,6 +46,7 @@
                                 <td><img src="{{templ.imagen_url}}" width="36px"></td>
                                 <td>{{templ.descripcion}}</td>
                                 <td>{{templ.descuento}}</td>
+                                <td><a href="{% url 'remove_template' pk=templ.titulo %}"></a>
                             </tr>
                             {% endfor%}
                             {% endif %}

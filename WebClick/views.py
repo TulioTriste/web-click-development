@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Usuario,Templates_Product, Carrito, Compra
+from .models import Usuario,Templates_Product
 from .forms import UsuarioForm
 from django.contrib.auth import authenticate,login,logout
 
@@ -131,8 +131,8 @@ def get_templates_without_modify():
             
     return productos_templates
 
-def template(request, id):
-    template = Templates_Product.objects.get(id=id)
+def template(request, pk):
+    template = Templates_Product.objects.get(id=pk)
     context = {
         "template": template
     }
@@ -179,3 +179,22 @@ def add_template(request):
             "mensaje": "Registro Exitoso",
         }
         return render(request, "pages/template_add.html", context)
+
+def remove_template(request, pk):
+    try:
+        template = Templates_Product.objects.get(id=pk)
+        template.delete()
+
+        templates = get_templates_without_modify()
+        context = {
+            "mensaje": "Registro Eliminado",
+            "templates": templates,
+        }
+        return render(request, "pages/panel.html", context)
+    except:
+        templates = get_templates_without_modify
+        context = {
+            "mensaje": "Error, ID no Encontrado...",
+            "templates": templates,
+        }
+        return render(request, "pages/panel.html", context)
