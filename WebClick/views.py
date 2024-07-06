@@ -187,7 +187,7 @@ def remove_template(request, pk):
 
         templates = get_templates_without_modify()
         context = {
-            "mensaje": "Registro Eliminado",
+            "mensaje": "Template Eliminado Correctamente",
             "templates": templates,
         }
         return render(request, "pages/panel.html", context)

@@ -46,12 +46,17 @@
                                 <td><img src="{{templ.imagen_url}}" width="36px"></td>
                                 <td>{{templ.descripcion}}</td>
                                 <td>{{templ.descuento}}</td>
-                                <td><a href="{% url 'remove_template' pk=templ.titulo %}"></a>
+                                <td><a href="{% url 'remove_template' pk=templ.id %}">Eliminar</a>
                             </tr>
                             {% endfor%}
                             {% endif %}
                         </tbody>
                     </table>
+                    {% if mensaje %}
+                    <div class="alert alert-success w-50 mx-auto">
+                        {{mensaje}}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
