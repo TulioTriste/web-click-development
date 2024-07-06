@@ -49,27 +49,19 @@
             </li>
 
             {% if request.user.is_authenticated %}
-            {% if request.user.is_staff %}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                Dropdown link
-              </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Link 1</a>
-                <a class="dropdown-item" href="#">Link 2</a>
-                <a class="dropdown-item" href="#">Link 3</a>
-              </div>
+              {% if request.user.is_staff %}
+                <li>
+                  <button class="btn btn-outline-light" id="login-button"><a href="{% url 'panel' %}">Panel</a></button>
+                </li>
+            {% endif %}
+              <li>
+                <button class="btn btn-outline-light" id="login-button"><a href="{% url 'logout' %}">Logout</a></button>
               </li>
             {% else %}
-            <li>
-              <button class="btn btn-outline-light" id="login-button"><a href="{% url 'logout' %}">Logout</a></button>
-            </li>
+              <li>
+                <button class="btn btn-outline-light" id="login-button"><a href="{% url 'login' %}">Login</a></button>
+              </li>
             {% endif %}
-          {% else %}
-            <li>
-              <button class="btn btn-outline-light" id="login-button"><a href="{% url 'login' %}">Login</a></button>
-            </li>
-          {% endif %}
           </ul>
         </div>
       </div>
