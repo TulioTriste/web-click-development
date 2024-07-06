@@ -18,7 +18,6 @@
 
 <body>
     {% include 'base/header.html' %}
-    <main>
         <section class="h-100 h-custom" style="background-color: gray;">
             <form action="{% url 'carrito' %}" method="POST">
                 {% csrf_token %}
@@ -38,6 +37,8 @@
 
                                                 <div class="row mb-4 d-flex justify-content-between align-items-center">
                                                     <div class="col-md-2 col-lg-2 col-xl-2">
+                                                        <img src="{% static 'img/1..jpg' %}"
+                                                            class="img-fluid rounded-3" alt="Recursos Humanos">
                                                         
                                                     </div>
                                                     <div class="col-md-3 col-lg-3 col-xl-3">
@@ -74,7 +75,7 @@
 
                                                 <div class="row mb-4 d-flex justify-content-between align-items-center">
                                                     <div class="col-md-2 col-lg-2 col-xl-2">
-                                                        <img src="../Frontend/img/campaign-creators-pypeCEaJeZY-unsplash.jpg"
+                                                        <img src="{% static 'img/2..jpg' %}"
                                                             class="img-fluid rounded-3" alt="Ofimatica">
                                                     </div>
                                                     <div class="col-md-3 col-lg-3 col-xl-3">
@@ -167,12 +168,8 @@
                 </div>
             </form>
         </section>
-    </main>
     {% include 'base/footer.html' %}
     {% load static %}
     <script src = "{% static 'js/carrito.js' %}"></script>
 </body>
-</html>
-</body>
-    <script src = "{% static 'js/carrito.js' %}"></script>
 </html>
