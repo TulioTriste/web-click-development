@@ -126,6 +126,11 @@ def get_templates():
             
     return productos_templates
 
+def get_templates_without_modify():
+    productos_templates = Templates_Product.objects.all()
+            
+    return productos_templates
+
 def template(request, id):
     template = Templates_Product.objects.get(id=id)
     context = {
@@ -134,6 +139,13 @@ def template(request, id):
     return render(request, "pages/template.html", context)
 
 def carrito(request):
-    
     return render(request, "pages/carrito.html")
 
+def panel(request):
+    context = {
+        "templates": get_templates_without_modify()
+    }
+    return render(request, "pages/panel.html", context)
+
+def template_add(request):
+    return render(request, "pages/template_add.html")
