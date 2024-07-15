@@ -1,141 +1,107 @@
-$(document).ready(function () {
-    $("*")
-        .contents()
-        .filter(function () {
-            return this.nodeType === 3 && /\b\d+\.0\b/.test(this.nodeValue);
-        })
-        .each(function () {
-            this.nodeValue = this.nodeValue.replace(/\b(\d+)\.0\b/g, "$1");
+//variables
+let allContainerCart = document.querySelector('.products');
+let containerBuyCart = document.querySelector('.card-items');
+let priceTotal = document.querySelector('.price-total')
+let amountProduct = document.querySelector('.count-product');
+
+
+let buyThings = [];
+let totalCard = 0;
+let countProduct = 0;
+
+//functions
+loadEventListenrs();
+function loadEventListenrs(){
+    allContainerCart.addEventListener('click', addProduct);
+
+    containerBuyCart.addEventListener('click', deleteProduct);
+}
+
+function addProduct(e){
+    e.preventDefault();
+    if (e.target.classList.contains('btn-add-cart')) {
+        const selectProduct = e.target.parentElement; 
+        readTheContent(selectProduct);
+    }
+}
+
+function deleteProduct(e) {
+    if (e.target.classList.contains('delete-product')) {
+        const deleteId = e.target.getAttribute('data-id');
+
+        buyThings.forEach(value => {
+            if (value.id == deleteId) {
+                let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
+                totalCard =  totalCard - priceReduce;
+                totalCard = totalCard.toFixed(2);
+            }
         });
+        buyThings = buyThings.filter(product => product.id !== deleteId);
+        
+        countProduct--;
+    }
+    //FIX: El contador se quedaba con "1" aunque ubiera 0 productos
+    if (buyThings.length === 0) {
+        priceTotal.innerHTML = 0;
+        amountProduct.innerHTML = 0;
+    }
+    loadHtml();
+}
 
-    const containerProducts = $("#container-products");
-    const rowProduct = document.querySelector(".cart-preview__products");
-    const cartEmpty = document.querySelector(".cart-preview__empty");
-    const cartNotEmpty = document.querySelector(".cart-preview__not-empty");
+function readTheContent(product){
+    const infoProduct = {
+        image: product.querySelector('div img').src,
+        title: product.querySelector('.title').textContent,
+        price: product.querySelector('div p span').textContent,
+        id: product.querySelector('a').getAttribute('data-id'),
+        amount: 1
+    }
 
-    let allProducts = [];
+    totalCard = parseFloat(totalCard) + parseFloat(infoProduct.price);
+    totalCard = totalCard.toFixed(2);
 
-    const valorTotal = document.querySelector(
-        ".cart-preview__total_precio_precio"
-    );
-    const countProducts = document.querySelector(
-        ".cart-preview__total_cantidad_cantidad"
-    );
-
-    containerProducts.on("click", function (e) {
-        if (!e.target.classList.contains("btn-add-cart")) return;
-
-        const product = e.target.parentElement.parentElement;
-
-        const infoProduct = {
-            title: product.querySelector(".card-title").textContent,
-            price: product.querySelector(".card-price").textContent,
-            src: product.querySelector(".card-image").src,
-            quantity: 1,
-        };
-
-        const existProduct = allProducts.some(
-            (product) => product.title === infoProduct.title
-        );
-
-        if (existProduct) {
-            const products = allProducts.map((product) => {
-                if (product.title === infoProduct.title) {
-                    product.quantity++;
-                }
+    const exist = buyThings.some(product => product.id === infoProduct.id);
+    if (exist) {
+        const pro = buyThings.map(product => {
+            if (product.id === infoProduct.id) {
+                product.amount++;
                 return product;
-            });
+            } else {
+                return product
+            }
+        });
+        buyThings = [...pro];
+    } else {
+        buyThings = [...buyThings, infoProduct]
+        countProduct++;
+    }
+    loadHtml();
+    //console.log(infoProduct);
+}
 
-            allProducts = [...products];
-        } else {
-            allProducts = [...allProducts, infoProduct];
-        }
-
-        updateCart();
-        showToast("Carrito de compra", "Producto agregado al carrito.", true);
-    });
-
-    rowProduct.addEventListener("click", function (e) {
-        if (!e.target.classList.contains("bi-trash")) return;
-
-        const product = e.target.parentElement.parentElement;
-        const title = product.querySelector(
-            ".cart-preview__product_item_info_nombre h6"
-        ).textContent;
-
-        allProducts = allProducts.filter((product) => product.title !== title);
-
-        updateCart();
-        showToast("Carrito de compra", "Producto eliminado del carrito.", true);
-    });
-
-    function updateCart() {
-        if (!allProducts.length) {
-            cartEmpty.classList.remove("hidden");
-            cartNotEmpty.classList.add("hidden");
-        } else {
-            cartEmpty.classList.add("hidden");
-            cartNotEmpty.classList.remove("hidden");
-        }
-
-        rowProduct.innerHTML = "";
-
-        let total = 0;
-        let totalOfProducts = 0;
-
-        allProducts.forEach((product) => {
-            const containerProduct = document.createElement("div");
-            containerProduct.classList.add("cart-preview__product_item");
-
-            containerProduct.innerHTML = `
-                <div class="cart-preview__product_item_img">
-                <img src="${product.src}" alt="${product.title}" class="cart-preview-item-img">
-                </div>
-    
-                <div class="cart-preview__product_item_info">
-                <div class="cart-preview__product_item_info_nombre">
-                    <h6>${product.title}</h6>
-                </div>
-                <div class="cart-preview__product_item_info_cantidad">
-                    Unidades:
-                    <span class="cart-preview__product_item_info_cantidad_cantidad">${product.quantity}</span>
-                </div>
-                <div class="cart-preview__product_item_info_precio">
-                    Precio: ${product.price}
-                </div>
-                </div>
-    
-                <div class="cart-preview__product_item_delete">
-                <i class="bi bi-trash" id="cart-preview__product_item_delete"></i>
-                </div>
+function loadHtml(){
+    clearHtml();
+    buyThings.forEach(product => {
+        const {image, title, price, amount, id} = product;
+        const row = document.createElement('div');
+        row.classList.add('item');
+        row.innerHTML = `
+            <img src="${image}" alt="">
+            <div class="item-content">
+                <h5>${title}</h5>
+                <h5 class="cart-price">${price}$</h5>
+                <h6>Amount: ${amount}</h6>
+            </div>
+            <span class="delete-product" data-id="${id}">X</span>
         `;
 
-            rowProduct.append(containerProduct);
+        containerBuyCart.appendChild(row);
 
-            productPrice = product.price.slice(1).replace(",", "").replace(".", "");
-            total += parseInt(productPrice * product.quantity);
-            totalOfProducts += product.quantity;
-        });
+        priceTotal.innerHTML = totalCard;
 
-        valorTotal.innerHTML = `$${total}`;
-        countProducts.innerHTML = totalOfProducts;
-    }
-
-    function addToCart(productId) {
-        fetch('/add-to-cart/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrftoken, // Asegúrate de obtener el token CSRF correctamente
-            },
-            body: JSON.stringify({'product_id': productId})
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            // Actualiza la interfaz del usuario según sea necesario
-        });
-    }
-
-    
-});
+        amountProduct.innerHTML = countProduct;
+    });
+}
+ function clearHtml(){
+    containerBuyCart.innerHTML = '';
+ }
