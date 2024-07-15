@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Usuario,Templates_Product
-from .forms import UsuarioForm
 from django.contrib.auth import authenticate,login,logout
+
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -100,6 +101,7 @@ def conectar(request):
         }
         return render(request,"registration/login.html",context)
 
+@login_required
 def desconectar(request):   
     if request.user.is_authenticated:
         logout(request)
@@ -138,18 +140,22 @@ def template(request, pk):
     }
     return render(request, "pages/template.html", context)
 
+@login_required
 def carrito(request):
     return render(request, "pages/carrito.html")
 
+@login_required
 def panel(request):
     context = {
         "templates": get_templates_without_modify()
     }
     return render(request, "pages/panel.html", context)
 
+@login_required
 def template_add(request):
     return render(request, "pages/template_add.html")
 
+@login_required
 def add_template(request):
     if request.method != "POST":
         usuarios = Templates_Product.objects.all()
@@ -180,6 +186,7 @@ def add_template(request):
         }
         return render(request, "pages/template_add.html", context)
 
+@login_required
 def remove_template(request, pk):
     try:
         template = Templates_Product.objects.get(id=pk)
