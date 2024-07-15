@@ -1,6 +1,13 @@
 //variables
-let allContainerCart = document.querySelector('.products');
+document.addEventListener('DOMContentLoaded', loadEventListeners);
+
+let allContainerCart = document.querySelector('.svg-icon');
 let containerBuyCart = document.querySelector('.card-items');
+
+function loadEventListeners() {
+    if(allContainerCart) allContainerCart.addEventListener('click', addProduct);
+    if(containerBuyCart) containerBuyCart.addEventListener('click', deleteProduct);
+}
 let priceTotal = document.querySelector('.price-total')
 let amountProduct = document.querySelector('.count-product');
 
@@ -19,7 +26,7 @@ function loadEventListenrs(){
 
 function addProduct(e){
     e.preventDefault();
-    if (e.target.classList.contains('btn-add-cart')) {
+    if (e.target.classList.contains('card-button')) {
         const selectProduct = e.target.parentElement; 
         readTheContent(selectProduct);
     }
