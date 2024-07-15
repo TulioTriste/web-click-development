@@ -22,12 +22,11 @@ class Usuario(models.Model):
         )
 
 class Templates_Product(models.Model):
-    id = models.AutoField(primary_key=True, null=False, default=1)
-    titulo = models.CharField(max_length=25)
+    titulo = models.CharField(primary_key=True, max_length=25, unique=True)
     precio = models.IntegerField()
     imagen_url = models.CharField(max_length=300)
     descripcion = models.CharField(max_length=150)
     descuento = models.IntegerField()
 
     def __str__(self):
-        return "ID: '" + str(self.id) + "' - Titulo: '" + str(self.titulo) + "' - Precio: '" + str(self.precio) + "'"
+        return "Titulo: '" + str(self.titulo) + "' - Precio: '" + str(self.precio) + "'"
