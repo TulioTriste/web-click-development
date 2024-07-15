@@ -20,6 +20,15 @@
         <section class="h-100 h-custom" style="background-color: gray;">
             <form action="{% url 'carrito' %}" method="POST">
                 {% csrf_token %}
+
+                {% for producto in productos %}
+                <div class="producto">
+                    <h2>{{ producto.nombre }}</h2>
+                    <p>{{ producto.descripcion }}</p>
+                    <p>Precio: ${{ producto.precio }}</p>
+                    <!-- Añade más detalles del producto según sea necesario -->
+                </div>
+                {% endfor %}
                 <div class="container py-5 h-100" style="background-color: gray">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-12">

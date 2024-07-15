@@ -120,4 +120,22 @@ $(document).ready(function () {
         valorTotal.innerHTML = `$${total}`;
         countProducts.innerHTML = totalOfProducts;
     }
+
+    function addToCart(productId) {
+        fetch('/add-to-cart/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrftoken, // Asegúrate de obtener el token CSRF correctamente
+            },
+            body: JSON.stringify({'product_id': productId})
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Actualiza la interfaz del usuario según sea necesario
+        });
+    }
+
+    
 });
