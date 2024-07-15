@@ -51,7 +51,7 @@
                                 <td><img src="{{templ.imagen_url}}" width="36px"></td>
                                 <td>{{templ.descripcion}}</td>
                                 <td>{{templ.descuento}}</td>
-                                <td><a href="{% url 'remove_template' pk=templ.id %}">Eliminar</a>
+                                <td><a href="{% url 'remove_template' pk=templ.titulo %}">Eliminar</a>
                             </tr>
                             {% endfor%}
                             {% endif %}

@@ -189,7 +189,7 @@ def add_template(request):
 @login_required
 def remove_template(request, pk):
     try:
-        template = Templates_Product.objects.get(id=pk)
+        template = Templates_Product.objects.get(titulo=pk)
         template.delete()
 
         templates = get_templates_without_modify()
